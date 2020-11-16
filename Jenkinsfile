@@ -1,5 +1,8 @@
 pipeline {
    agent any
+	environment {
+       PATH = "/opt/maven3/bin:$PATH"
+}
 	stages {
       stage('Git Checkout') {
          steps {
@@ -65,11 +68,11 @@ pipeline {
 			sh '/opt/maven/bin/mvn clean flyway:migrate'
 		}
 	}
-}
 	post {
         always {
             emailext body: "${currentBuild.currentResult}: Project Name : ${env.JOB_NAME} Build ID : ${env.BUILD_NUMBER}\n\n Approval Link :  ${env.BUILD_URL}", recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
         }
     }
 
+}
 }
