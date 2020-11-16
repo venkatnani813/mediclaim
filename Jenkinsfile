@@ -39,13 +39,6 @@ pipeline {
            ])
           }
       }
-	stage('Build') {
-		steps {
-			withSonarQubeEnv('sonar') {
-				sh '/opt/maven/bin/mvn clean verify sonar:sonar'
-			}
-		}
-	}
 	stage("Quality Gate") {
             steps {
               timeout(time: 2, unit: 'MINUTES') {
