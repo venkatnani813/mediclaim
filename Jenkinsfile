@@ -19,16 +19,6 @@ pipeline {
     emailext body: 'test', subject: 'jobrun', to: 'saidevmalik123@gmail.com'
     }
 }
-		stage('SonarAnalysis')
-
-    {steps {
-
-       withSonarQubeEnv('sonar') {
-
-           sh 'mvn sonar:sonar'   
-      }
-    }
- }
  stage('Publish Test Coverage Report') {
    steps {
       step([$class: 'JacocoPublisher', 
