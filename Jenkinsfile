@@ -29,6 +29,18 @@ pipeline {
       }
     }
  }
+		stage("Quality Gate") {
+            steps {
+              timeout(time: 2, unit: 'MINUTES') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+          }
+		stage ('Deploy') {
+		steps {
+			sh '/opt/maven/bin/mvn clean deploy'
+		}
+	}
  stage('Publish Test Coverage Report') {
    steps {
       step([$class: 'JacocoPublisher', 
