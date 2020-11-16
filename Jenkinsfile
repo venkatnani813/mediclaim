@@ -14,11 +14,6 @@ pipeline {
              sh 'mvn clean install'
 }
 }
-		stage('emailnotification'){
-    steps{
-    emailext body: 'test', subject: 'jobrun', to: 'saidevmalik123@gmail.com'
-    }
-}
 		stage('SonarAnalysis')
 
     {steps {
