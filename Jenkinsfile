@@ -9,11 +9,6 @@ pipeline {
             git 'https://github.com/saidevmalik/mediclaim.git'
 		}
 	}
-		//stage('emailnotification'){
-    //steps{
-    //emailext body: 'test', subject: 'jobrun', to: 'saidevmalik123@gmail.com'
-    //}
-//}
 		stage ('Build'){
        steps {
              sh 'mvn clean install'
@@ -32,13 +27,6 @@ pipeline {
       }
     }
  }
-//stage("Quality Gate") {
-  //          steps {
-   //           timeout(time: 2, unit: 'MINUTES') {
-     //           waitForQualityGate abortPipeline: false
-       //       }
-         //   }
-          //} 
 		stage("Quality Gate") {
             steps {
                 sh 'sleep 5s'
@@ -82,11 +70,6 @@ pipeline {
 			sh 'export JENKINS_NODE_COOKIE=dontkillme ;nohup java -jar $WORKSPACE/target/*.jar &'
 		}
 	}
-		//stage("email"){
-		//	steps{
-		//mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
-		//}
-		//}
 
 }
 }
