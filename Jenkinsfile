@@ -9,11 +9,11 @@ pipeline {
             git 'https://github.com/saidevmalik/mediclaim.git'
 		}
 	}
-		stage('emailnotification'){
-    steps{
-    emailext body: 'test', subject: 'jobrun', to: 'saidevmalik123@gmail.com'
-    }
-}
+		//stage('emailnotification'){
+    //steps{
+    //emailext body: 'test', subject: 'jobrun', to: 'saidevmalik123@gmail.com'
+    //}
+//}
 		stage ('Build'){
        steps {
              sh 'mvn clean install'
@@ -39,6 +39,12 @@ pipeline {
               //}
             //}
           //}
+		stage("email"){
+			steps{
+		mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
+		}
+		}
+
  stage('Publish Test Coverage Report') {
    steps {
       step([$class: 'JacocoPublisher', 
@@ -60,14 +66,10 @@ pipeline {
 		}
 	}
 		//stage("email"){
-			//steps{
+		//	steps{
 		//mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
 		//}
 		//}
-		stage("email"){
-			steps{
-            emailext body: "${currentBuild.currentResult}: Project Name : ${env.JOB_NAME} Build ID : ${env.BUILD_NUMBER}\n\n  Approval Link :  ${env.BUILD_URL}", recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
-        }
-    }
+
 }
 }
