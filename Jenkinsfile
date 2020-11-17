@@ -86,6 +86,9 @@ pipeline {
             lastChanges()
             notify(currentBuild.result)
         }
-	 }
+        /*success {
+        }
+        failure {
+        }*/
 }
 }
