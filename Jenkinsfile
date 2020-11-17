@@ -32,18 +32,13 @@ pipeline {
       }
     }
  }
-		stage("Quality Gate") {
-            steps {
-                timeout(time: 1, unit: 'MINUTES') {
-                    script  {
-                        def qg = waitForQualityGate()
-                        if (qg.status != 'OK') {
-                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                        }
-                    }
-                }
-            }
-        }
+//stage("Quality Gate") {
+            //steps {
+              //timeout(time: 2, unit: 'MINUTES') {
+                //waitForQualityGate abortPipeline: true
+              //}
+            //}
+          //}
  stage('Publish Test Coverage Report') {
    steps {
       step([$class: 'JacocoPublisher', 
