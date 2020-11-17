@@ -69,6 +69,11 @@
 			  <artifactId>flyway-core</artifactId>
 			  <version>6.3.2</version>
         	</dependency>
+		<dependency>
+		<groupId>org.flywaydb</groupId>
+		<artifactId>flyway-core</artifactId>
+		<version>6.3.2</version>
+		</dependency>
 	</dependencies>
 	<scm>
         <connection>scm:https://github.com/baikunthar/mediclaim.git</connection>
@@ -112,9 +117,9 @@
 				</executions>
 			</plugin>
 			<plugin>
-			    <groupId>org.flywaydb</groupId>
-        		    <artifactId>flyway-maven-plugin</artifactId>
-			    <version>6.4.4</version>
+			   <groupId>org.flywaydb</groupId>
+                           <artifactId>flyway-maven-plugin</artifactId>
+                           <version>7.2.0</version>
 			    <configuration>
                               <url>jdbc:mysql://104.211.117.31:3306</url>
                               <user>root</user>
