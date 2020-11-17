@@ -32,13 +32,13 @@ pipeline {
       }
     }
  }
-//stage("Quality Gate") {
-            //steps {
-              //timeout(time: 2, unit: 'MINUTES') {
-                //waitForQualityGate abortPipeline: true
-              //}
-            //}
-          //}
+stage("Quality Gate") {
+            steps {
+              timeout(time: 2, unit: 'MINUTES') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+          }
 		stage("email"){
 			steps{
 		mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
