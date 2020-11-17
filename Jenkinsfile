@@ -23,7 +23,7 @@ pipeline {
 
     {steps {
 
-       withSonarQubeEnv('sonar') {
+       withSonarQubeEnv('sonar-3') {
 
            sh '/bin/mvn sonar:sonar'   
      }
