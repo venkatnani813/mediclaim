@@ -51,7 +51,7 @@ pipeline {
       }	
 		stage ('Deploy') {
 		steps {
-			sh '/opt/maven/bin/mvn clean deploy -Dmaven.test.skip=true'
+			sh '/opt/maven3/bin/mvn clean deploy -Dmaven.test.skip=true'
 		}
 	}
 }
