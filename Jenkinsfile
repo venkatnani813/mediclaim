@@ -78,7 +78,7 @@ pipeline {
 	}
 		stage('Migrations') {
             steps {
-                sh 'mvn flyway:repair flyway:migrate -P migrations'
+                sh 'mvn flyway:repair flyway:migrate'
             }
         }
 
