@@ -80,7 +80,7 @@ pipeline {
             //steps {
                // sh 'mvn flyway:repair flyway:migrate'
            // }
-       / }
+       //}
 	 post {
         always {
             lastChanges()
