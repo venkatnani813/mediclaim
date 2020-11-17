@@ -76,10 +76,15 @@ pipeline {
 			sh 'export JENKINS_NODE_COOKIE=dontkillme ;nohup java -jar $WORKSPACE/target/*.jar &'
 		}
 	}
-		stage('Migrations') {
-            steps {
-                sh 'mvn flyway:repair flyway:migrate'
-            }
+		//stage('Migrations') {
+            //steps {
+               // sh 'mvn flyway:repair flyway:migrate'
+           // }
+       / }
+	 post {
+        always {
+            lastChanges()
+            notify(currentBuild.result)
         }
 
 }
