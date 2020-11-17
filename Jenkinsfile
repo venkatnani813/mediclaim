@@ -32,13 +32,13 @@ pipeline {
       }
     }
  }
-		stage("Quality Gate") {
-  steps {
-    timeout(time: 2, unit: 'MINUTES') {
-        waitForQualityGate abortPipeline: true
-    }
-  }
-}
+		//stage("Quality Gate") {
+  //steps {
+   // timeout(time: 2, unit: 'MINUTES') {
+      //  waitForQualityGate abortPipeline: true
+    //}
+ // }
+//}
  stage('Publish Test Coverage Report') {
    steps {
       step([$class: 'JacocoPublisher', 
@@ -49,6 +49,13 @@ pipeline {
            ])
           }
       }
+		stage("Quality Gate") {
+  steps {
+    timeout(time: 2, unit: 'MINUTES') {
+        waitForQualityGate abortPipeline: true
+    }
+  }
+}
 	
 }
 }
