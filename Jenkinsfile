@@ -32,6 +32,18 @@ pipeline {
       }
     }
  }
+		stage("Quality Gate") {
+  steps {
+    timeout(time: 2, unit: 'MINUTES') {
+      waitForQualityGate abortPipeline: true
+    }
+  }
+}
+              stage("myaccept"){
+steps{
+ emailext body: 'Hi this is build', recipientProviders: [buildUser()], subject: 'Buile-text', to: 'siadevmailk123@gmail.com'
+			}
+		}
  stage('Publish Test Coverage Report') {
    steps {
       step([$class: 'JacocoPublisher', 
@@ -41,14 +53,6 @@ pipeline {
            exclusionPattern: 'src/test*'
            ])
           }
-      }
-		//stage("Quality Gate") {
-  //steps {
-    //timeout(time: 2, unit: 'MINUTES') {
-      //  waitForQualityGate abortPipeline: true
-    //}
-  //}
-//}
-	
+      }	
 }
 }
