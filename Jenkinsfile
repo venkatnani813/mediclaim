@@ -23,7 +23,7 @@ pipeline {
 
     {steps {
 
-       withSonarQubeEnv('sonar-3') {
+       withSonarQubeEnv('sonar3') {
 
            sh 'mvn sonar:sonar \
   -Dsonar.projectKey=mediclaim \
