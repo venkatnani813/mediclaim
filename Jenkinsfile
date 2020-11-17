@@ -25,7 +25,10 @@ pipeline {
 
        withSonarQubeEnv('sonar-3') {
 
-           sh 'mvn sonar:sonar'   
+           sh 'mvn sonar:sonar \
+  -Dsonar.projectKey=mediclaim \
+  -Dsonar.host.url=http://104.211.117.31:9000 \
+  -Dsonar.login=c784eaa201cb812a7f02be95550fce589fd306c9'   
       }
     }
  }
