@@ -19,16 +19,16 @@ pipeline {
              sh 'mvn clean install'
 }
 }
-		stage('SonarAnalysis')
+	stage('SonarAnalysis')
 
     {steps {
 
        withSonarQubeEnv('sonar-3') {
 
-           sh '/bin/mvn sonar:sonar'   
-     }
+           sh 'mvn sonar:sonar'   
+      }
     }
-}
+ }
 		//stage("Quality Gate") {
   //steps {
     //timeout(time: 1, unit: 'MINUTES') {
