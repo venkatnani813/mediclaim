@@ -24,6 +24,16 @@ pipeline {
       }
     }
  }
+		stage('SonarAnalysis')
+
+    {steps {
+
+       withSonarQubeEnv('sonar') {
+
+           sh 'mvn sonar:sonar'   
+      }
+    }
+ }
  stage('Publish Test Coverage Report') {
    steps {
       step([$class: 'JacocoPublisher', 
