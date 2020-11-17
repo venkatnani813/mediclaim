@@ -118,10 +118,10 @@
 			</plugin>
 			<plugin>
 			   <groupId>org.flywaydb</groupId>
-                           <artifactId>flyway-maven-plugin</artifactId>
-                           <version>7.2.0</version>
+        		    <artifactId>flyway-maven-plugin</artifactId>
+			    <version>6.4.4</version>
 			    <configuration>
-                              <url>jdbc:mysql://104.211.117.31:3306</url>
+                              <url>jdbc:mysql:104.211.117.31:3306</url>
                               <user>root</user>
 		              <password>1234</password>
 			      <schemas>
