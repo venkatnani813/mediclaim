@@ -32,13 +32,29 @@ pipeline {
       }
     }
  }
-stage("Quality Gate") {
+//stage("Quality Gate") {
+  //          steps {
+   //           timeout(time: 2, unit: 'MINUTES') {
+     //           waitForQualityGate abortPipeline: false
+       //       }
+         //   }
+          //} stage("Quality Gate") {
             steps {
-              timeout(time: 2, unit: 'MINUTES') {
-                waitForQualityGate abortPipeline: false
-              }
+                sh 'sleep 5s'
+                timeout(time: 5, unit: 'MINUTES') {
+                    script {
+                        def result = waitForQualityGate()
+                        if (result.status != 'OK') {
+                            error "Pipeline aborted due to quality gate failure: ${result.status}"
+                        } else {
+                            echo "Quality gate passed with result: ${result.status}"
+                        }
+                    }
+                }
+
             }
-          }
+        }
+		
 		stage("email"){
 			steps{
 		mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
