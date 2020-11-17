@@ -14,6 +14,13 @@ pipeline {
              sh 'mvn clean install'
 }
 }
+		stage('unit-tests') {
+            steps {
+                sh 'mvn test -Pcoverage'
+                stash includes: 'src/**, pom.xml, target/**', name: 'unit'
+                //save because of coverage re usage in 'it-tests' stage
+            }
+        }
 	stage('SonarAnalysis')
 
     {steps {
