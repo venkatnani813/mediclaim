@@ -81,15 +81,5 @@ pipeline {
                // sh 'mvn flyway:repair flyway:migrate'
            // }
        //}
-	 post {
-        always {
-            lastChanges()
-            notify(currentBuild.result)
-        }
-        /*success {
-        }
-        failure {
-     }*/
-	 }
 }
 }
