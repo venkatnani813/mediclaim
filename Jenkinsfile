@@ -9,6 +9,11 @@ pipeline {
             git 'https://github.com/saidevmalik/mediclaim.git'
 		}
 	}
+		stage('emailnotification'){
+    steps{
+    emailext body: 'test', subject: 'jobrun', to: 'saidevmalik123@gmail.com'
+    }
+}
 		stage ('Build'){
        steps {
              sh 'mvn clean install'
