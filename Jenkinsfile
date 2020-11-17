@@ -20,16 +20,6 @@ pipeline {
 
        withSonarQubeEnv('sonar') {
 
-           sh 'mvn clean verify sonar:sonar'   
-      }
-    }
- }
-		stage('SonarAnalysis')
-
-    {steps {
-
-       withSonarQubeEnv('sonar') {
-
            sh 'mvn sonar:sonar'   
       }
     }
