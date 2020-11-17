@@ -43,7 +43,6 @@ pipeline {
 
             }
         }
-		
 		stage("email"){
 			steps{
 		mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
