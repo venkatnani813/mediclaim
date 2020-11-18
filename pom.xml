@@ -119,7 +119,7 @@
 			<plugin>
 			    <groupId>org.flywaydb</groupId>
         		    <artifactId>flyway-maven-plugin</artifactId>
-			    <version>6.4.4</version>
+			    <version>6.3.2</version>
 			    <configuration>
                               <url>jdbc:mysql://127.0.0.1:3306</url>
                               <user>claimuser1</user>
