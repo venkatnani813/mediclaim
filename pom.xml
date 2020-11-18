@@ -69,6 +69,11 @@
 			  <artifactId>flyway-core</artifactId>
 			  <version>6.3.2</version>
         	</dependency>
+		<dependency>
+		<groupId>org.flywaydb</groupId>
+		<artifactId>flyway-core</artifactId>
+		<version>6.3.2</version>
+		</dependency>
 	</dependencies>
 	<scm>
         <connection>scm:https://github.com/baikunthar/mediclaim.git</connection>
@@ -79,11 +84,11 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus</id>
-			<url>http://13.94.33.175:8081/repository/halloworld/</url>
+			<url>http://13.233.25.184:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 		<repository>
              <id>nexus</id>
-             <url>http://13.94.33.175:8081/repository/halloworld/</url>
+             <url>http://13.233.25.184:8081/nexus/content/repositories/releases</url>
        	     </repository>
 	</distributionManagement>
 	<build>
@@ -112,11 +117,11 @@
 				</executions>
 			</plugin>
 			<plugin>
-			   <groupId>org.flywaydb</groupId>
+			    <groupId>org.flywaydb</groupId>
         		    <artifactId>flyway-maven-plugin</artifactId>
 			    <version>6.4.4</version>
 			    <configuration>
-                              <urljdbc:jdbc:mysql://104.211.117.31:3306/testdb?useSSL=false</url>
+                              <url>jdbc:mysql://13.127.88.103:3306</url>
                               <user>claimuser1</user>
 		              <password>H@ckath0n</password>
 			      <schemas>
