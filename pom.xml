@@ -116,9 +116,9 @@
         		    <artifactId>flyway-maven-plugin</artifactId>
 			    <version>6.4.4</version>
 			    <configuration>
-                              <urljdbc:hsqldb:file:${project.build.directory}/db/flyway_sample;shutdown=true></url>
-                              <user>root</user>
-		              <password>1234</password>
+                              <urljdbc:jdbc:mysql://104.211.117.31:3306/testdb?useSSL=false</url>
+                              <user>claimuser1</user>
+		              <password>H@ckath0n</password>
 			      <schemas>
                                  <schema>claimdb</schema>
                               </schemas>
