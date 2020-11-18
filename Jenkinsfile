@@ -82,19 +82,6 @@ pipeline {
 		//}
 	//}
 		
-		post {
-            success {
-                echo "Test run completed succesfully."
-            }
-            failure {
-                echo "Test run failed."
-            }
-            always {
-        // Let's wipe out the workspace before we finish!
-                deleteDir()
-                echo "Workspace cleaned"
-            }
-    }
 	}
 }
 		
