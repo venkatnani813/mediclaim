@@ -57,7 +57,7 @@ pipeline {
 //	}
 		stage('Deploye-production'){
 			steps{
-		sshagent(['tomcat-dev']) {
+		sshagent(['tomcat-server']) {
                         sh 'ssh -o StrictHostKeyChecking=no target/*.jar mallick@52.185.149.218:/opt/tomcat/webapps'
 }
 			}
