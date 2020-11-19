@@ -1,5 +1,8 @@
 pipeline {
    agent any
+	environment {
+       PATH = "/opt/maven3/bin:$PATH"
+}
 	stages {
       stage('Git Checkout') {
          steps {
@@ -9,7 +12,7 @@ pipeline {
 	stage('Build') {
 		steps {
 			withSonarQubeEnv('sonar') {
-				sh '/opt/maven/bin/mvn clean verify sonar:sonar -Dmaven.test.skip=true'
+				sh '/opt/maven3/bin/mvn clean verify sonar:sonar -Dmaven.test.skip=true'
 			}
 		}
 	}
@@ -22,7 +25,7 @@ pipeline {
           }
 	stage ('Deploy') {
 		steps {
-			sh '/opt/maven/bin/mvn clean deploy -Dmaven.test.skip=true'
+			sh '/opt/maven3/bin/mvn clean deploy -Dmaven.test.skip=true'
 		}
 	}
 	stage ('Release') {
@@ -30,3 +33,5 @@ pipeline {
 			sh 'export JENKINS_NODE_COOKIE=dontkillme ;nohup java -jar $WORKSPACE/target/*.jar &'
 		}
 	}
+	}
+}
