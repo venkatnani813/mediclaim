@@ -9,11 +9,11 @@ pipeline {
             git 'https://github.com/saidevmalik/mediclaim.git'
 		}
 	}
-		stage ('Build'){
-       steps {
-             sh 'mvn clean install'
-}
-}
+		//stage ('Build'){
+       //steps {
+         //    sh 'mvn clean install'
+//}
+//}
 		stage('unit-tests') {
             steps {
                 sh 'mvn test -Pcoverage'
@@ -50,6 +50,11 @@ pipeline {
 
             }
         }
+		stage ('Deploy') {
+		steps {
+			sh '/opt/maven3/bin/mvn clean deploy -Dmaven.test.skip=true'
+		}
+	}
 		stage("email"){
 			steps{
 		mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
