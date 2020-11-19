@@ -41,7 +41,7 @@ pipeline {
         }
 	stage ('Deploy') {
 		steps {
-			sh '/opt/maven3/bin/mvn clean install deploy'
+			sh '/opt/maven3/bin/mvn clean deploy'
 		}
 	}
 	stage ('Release') {
