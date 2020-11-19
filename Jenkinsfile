@@ -12,7 +12,7 @@ pipeline {
 	stage('Build') {
 		steps {
 			withSonarQubeEnv('sonar') {
-				sh '/opt/maven3/bin/mvn clean verify sonar:sonar -Dmaven.test.skip=true'
+				sh '/opt/maven3/bin/mvn clean verify sonar:sonar'
 			}
 		}
 	}
