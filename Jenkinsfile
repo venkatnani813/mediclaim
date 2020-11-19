@@ -55,5 +55,12 @@ pipeline {
 		//	sh '/opt/maven3/bin/mvn clean flyway:migrate'
 		//}
 //	}
+		stage('Deploye-production'){
+			steps{
+		sshagent(['tomcat-dev']) {
+                        sh 'ssh -o StrictHostKeyChecking=no target/*.jar mallick@52.185.149.218:/opt/tomcat/webapps'
+}
+			}
+		}
 	}
 }
