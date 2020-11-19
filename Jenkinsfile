@@ -57,8 +57,8 @@ pipeline {
 //	}
 		stage('Deploye-production'){
 			steps{
-		sshagent(['tomcatserver']) {
-                        sh 'scp -o StrictHostKeyChecking=no target/*.jar root@52.185.149.218:/opt/tomcat/webapps/'
+		sshagent(['tomcat']) {
+                       sh 'scp -o StrictHostKeyChecking=no target/*.jar root@52.185.149.218:/opt/tomcat/webapps/'
 }
 			}
 		}
