@@ -50,10 +50,10 @@ pipeline {
 		}
 	}
 	
-		stage ('DB Migration') {
-		steps {
-			sh '/opt/maven3/bin/mvn clean flyway:migrate'
-		}
-	}
+		//stage ('DB Migration') {
+		//steps {
+		//	sh '/opt/maven3/bin/mvn clean flyway:migrate'
+		//}
+//	}
 	}
 }
