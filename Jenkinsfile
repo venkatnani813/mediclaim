@@ -52,7 +52,7 @@ pipeline {
 	
 		stage ('DB Migration') {
 		steps {
-			sh '/opt/maven3/bin/mvn clean flyway:migrate'
+			sh 'mvn flyway:repair flyway:migrate -P migrations'
 		}
 	}
 	//	stage('Deploye-production'){
