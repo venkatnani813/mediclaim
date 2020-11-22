@@ -112,14 +112,13 @@
 				</executions>
 			</plugin>
 			<plugin>
-			   <groupId>org.flywaydb</groupId>
+			    <groupId>org.flywaydb</groupId>
         		    <artifactId>flyway-maven-plugin</artifactId>
 			    <version>6.4.4</version>
-                        </executions>
 			    <configuration>
-                              <url>jdbc:mysql:104.211.117.31:3306</url>
-                              <user>root</user>
-		              <password>1234</password>
+                              <url>jdbc:mysql:20.51.189.249:3306</url>
+                              <user>claimuser1</user>
+		              <password>H@ckath0n</password>
 			      <schemas>
                                  <schema>claimdb</schema>
                               </schemas>
