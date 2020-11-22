@@ -113,8 +113,16 @@
 			</plugin>
 			<plugin>
 			    <groupId>org.flywaydb</groupId>
-        		    <artifactId>flyway-maven-plugin</artifactId>
-			    <version>6.4.4</version>
+                        <artifactId>flyway-maven-plugin</artifactId>
+                        <version>3.2.1</version>
+                        <executions>
+                            <execution>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>migrate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
 			    <configuration>
                               <url>jdbc:mysql:104.211.117.31:3306</url>
                               <user>root</user>
