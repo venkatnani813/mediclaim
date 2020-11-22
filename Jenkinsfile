@@ -57,7 +57,7 @@ pipeline {
 	//}
 		stage('Deploye-production'){
 			steps{
-                       sh """scp -o /var/lib/jenkins/workspace/mediclain2/target/mediclaim-0.0.13-SNAPSHOT.jar root@52.185.149.218:/opt/tomcat/webapps/"""
+                       sh """scp  /var/lib/jenkins/workspace/mediclain2/target/mediclaim-0.0.13-SNAPSHOT.jar root@52.185.149.218:/opt/tomcat/webapps/"""
 			}
 		}
 	}
