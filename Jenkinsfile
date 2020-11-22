@@ -50,17 +50,17 @@ pipeline {
 		}
 	}
 	
-		stage ('DB Migration') {
-		steps {
-			sh 'mvn flyway:repair flyway:migrate -P migrations'
+		//stage ('DB Migration') {
+		//steps {
+		//	sh 'mvn flyway:repair flyway:migrate -P migrations'
+		//}
+	//}
+		stage('Deploye-production'){
+			steps{
+		sshagent(['tomcat-server']) {
+                       sh """ssh -o StrictHostKeyChecking=no target/mediclaim-0.0.13-SNAPSHOT.jar ec2-user@13-126-15-55.ap-south-1.compute.amazonaws.com:/opt/apache-tomcat-9.0.40/webapps/"""
+}
+			}
 		}
-	}
-	//	stage('Deploye-production'){
-	//		steps{
-	//	sshagent(['tomcat-server']) {
-          //             sh "ssh -o StrictHostKeyChecking=no target/*.jar ec2-13-126-15-55.ap-south-1.compute.amazonaws.com:/opt/apache-tomcat-9.0.40/webapps/"
-//}
-//			}
-//		}
 	}
 }
