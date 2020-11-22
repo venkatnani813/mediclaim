@@ -58,7 +58,7 @@ pipeline {
 		stage('Deploye-production'){
 			steps{
 		sshagent(['tomcat-server']) {
-                       sh """ssh -o StrictHostKeyChecking=no target/mediclaim-0.0.13-SNAPSHOT.jar ec2-user@13-126-15-55.ap-south-1.compute.amazonaws.com:/opt/apache-tomcat-9.0.40/webapps/"""
+                       sh """ssh -o StrictHostKeyChecking=no target/mediclaim-0.0.13-SNAPSHOT.jar root@52.185.149.218:/opt/tomcat/webapps/"""
 }
 			}
 		}
