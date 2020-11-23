@@ -49,13 +49,19 @@ pipeline {
            ])
           }
       }	
-		//stage ('Publish Unit Test Report')
+	stage('unit-tests') {
 
-            //{ steps {
+steps {
 
-              // build 'Test Reports'
+sh 'mvn test -Pcoverage'
 
-            //}}   
+stash includes: 'src/**, pom.xml, target/**', name: 'unit'
+
+//save because of coverage re usage in 'it-tests' stage
+
+}
+
+}
 		stage("email"){
 			steps{
 		mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
