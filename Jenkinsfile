@@ -83,7 +83,7 @@ stash includes: 'src/**, pom.xml, target/**', name: 'unit'
 		//	sh 'mvn flyway:repair flyway:migrate -P migrations'
 		//}
 	//}
-		stage('Deploye-production'){
+		stage('Deploye-UAT'){
 			steps{
 	sshagent(['tomcat']) {
                        sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mediclain2/target/mediclaim-0.0.13-SNAPSHOT.jar ec2-user@13.126.15.55:/opt/apache-tomcat-9.0.40/webapps/'
