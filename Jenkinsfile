@@ -39,6 +39,28 @@ pipeline {
 
             }
         }
+		stage('Publish Test Coverage Report') {
+   steps {
+      step([$class: 'JacocoPublisher', 
+           execPattern: '**/build/jacoco/*.exec',
+           classPattern: '**/build/classes',
+           sourcePattern: 'src/main/java',
+           exclusionPattern: 'src/test*'
+           ])
+          }
+      }	
+		stage ('Publish Unit Test Report')
+
+            { steps {
+
+               build 'Test Reports'
+
+            }}   
+		stage("email"){
+			steps{
+		mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
+		}
+		}
 	stage ('Deploy') {
 		steps {
 			sh '/opt/maven3/bin/mvn clean deploy -Dmaven.test.skip=true'
