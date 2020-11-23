@@ -58,7 +58,7 @@ pipeline {
 		stage('Deploye-production'){
 			steps{
 	sshagent(['tomcat']) {
-                       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mediclain2/target/mediclaim-0.0.13-SNAPSHOT.jar ec2-user@13.126.15.55:/opt/apache-tomcat-9.0.40/webapps/'
+                       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mediclain2/target/mediclaim-0.0.13-SNAPSHOT.jar ec2-user@13.126.15.55:/opt/apache-tomcat-9.0.40/webapps'
 			}
 		}
 		}
