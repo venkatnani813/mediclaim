@@ -58,7 +58,7 @@ pipeline {
 		stage('Deploye-production'){
 			steps{
                         sshagent(['tomcat']) {
-                       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mediclain2/target/mediclaim-0.0.13-SNAPSHOT.jar root@10.0.5.4:/opt/tomcat/webapps/'
+                       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mediclain2/target/mediclaim-0.0.13-SNAPSHOT.jar mallick@52.185.149.218:/opt/tomcat/webapps/'
 			}
 		}
 		}
