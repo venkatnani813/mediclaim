@@ -39,20 +39,23 @@ pipeline {
 
             }
         }
-	stage ('Publish Code Coverage Report')
+	stage('Publish Test Coverage Report') {
+   steps {
+      step([$class: 'JacocoPublisher', 
+           execPattern: '**/build/jacoco/*.exec',
+           classPattern: '**/build/classes',
+           sourcePattern: 'src/main/java',
+           exclusionPattern: 'src/test*'
+           ])
+          }
+      }	
+		//stage ('Publish Unit Test Report')
 
-            { steps {
+            //{ steps {
 
-                   build 'Code Coverage'
+              // build 'Test Reports'
 
-            }}      
-		stage ('Publish Unit Test Report')
-
-            { steps {
-
-               build 'Test Reports'
-
-            }}   
+            //}}   
 		stage("email"){
 			steps{
 		mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
