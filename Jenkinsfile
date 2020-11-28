@@ -9,7 +9,5 @@ pipeline {
             git 'https://github.com/saidevmalik/mediclaim.git'
 		}
 	}
-		
-}
 }
 }
