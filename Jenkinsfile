@@ -10,13 +10,15 @@ pipeline {
 		}
 	}
 		
-		stage('Build') {
-		steps {
-			withSonarQubeEnv('sonar') {
-				sh '/opt/maven/bin/mvn clean verify sonar:sonar'
-			}
+		stage('Sonar Build') {
+            steps {
+		        script{
+				    withSonarQubeEnv('sonar') {
+					sh 'mvn clean verify sonar:sonar -Dmaven.test.skip=true'
+					}
+                }
+            }
 		}
-	}
 		
 }
 }
