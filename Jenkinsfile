@@ -68,5 +68,12 @@ pipeline {
 	     sh 'export JENKINS_NODE_COOKIE=dontkillme ;nohup java -jar $WORKSPACE/target/*.jar &'
 }
 }
+		stage('Deploye-UAT'){
+	   steps{
+		sshagent(['Tomcat-server']) {
+			 sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mediclaim@2/target/mediclaim-0.0.13-SNAPSHOT.jar ubuntu@13.232.119.46 :/opt/tomcat/webapps/'
+		}
+	   }
+		}
 }
 }
