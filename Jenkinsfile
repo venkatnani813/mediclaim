@@ -1,7 +1,7 @@
 pipeline {
    agent any
 	environment {
-       PATH = "/opt/maven3/bin:$PATH"
+       PATH = "/opt/maven/bin:$PATH"
 }
 	stages {
       stage('Git Checkout') {
@@ -11,8 +11,8 @@ pipeline {
 	}
 	stage('Build') {
 		steps {
-			withSonarQubeEnv('sonar3') {
-				sh '/opt/maven3/bin/mvn clean verify sonar:sonar'
+			withSonarQubeEnv('sonar') {
+				sh '/opt/maven/bin/mvn clean verify sonar:sonar'
 			}
 		}
 	}
