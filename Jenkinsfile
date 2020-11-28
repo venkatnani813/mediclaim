@@ -47,5 +47,11 @@ pipeline {
            ])
           }
       }	
+		stage('unit-tests') {
+            steps {
+               sh 'mvn test -Pcoverage'
+               stash includes: 'src/**, pom.xml, target/**', name: 'unit'
+}
+}
 }
 }
