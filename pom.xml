@@ -79,11 +79,11 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus</id>
-			<url>http://13.127.182.107:8081/repository/hcltechnology</url>
+			<url>http://13.127.182.107:8081/repository/hcltechnology/</url>
 		</snapshotRepository>
 		<repository>
              <id>nexus</id>
-             <url>http://13.127.182.107:8081/repository/hcltechnology</url>
+             <url>http://13.127.182.107:8081/repository/hcltechnology/</url>
        	     </repository>
 	</distributionManagement>
 	<build>
