@@ -9,6 +9,11 @@ pipeline {
             git 'https://github.com/saidevmalik/mediclaim.git'
 		}
 	}
+		stage ('build') {
+	     steps {
+	     sh '/opt/maven/bin/mvn clean install'
+}
+}
 		
 }
 }
