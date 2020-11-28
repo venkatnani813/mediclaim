@@ -79,11 +79,11 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus</id>
-			<url>http://65.0.73.89:8081/repository/halloworld</url>
+			<url>http://13.127.182.107:8081/repository/halloworld/</url>
 		</snapshotRepository>
 		<repository>
              <id>nexus</id>
-             <url>http://65.0.73.89:8081/repository/halloworld</url>
+             <url>http://13.127.182.107:8081/repository/halloworld/</url>
        	     </repository>
 	</distributionManagement>
 	<build>
