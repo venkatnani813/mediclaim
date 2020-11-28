@@ -14,7 +14,7 @@ pipeline {
 	     sh 'mvn clean install'
 	     }
 		 }
-		     stage('Build') {
+		     stage('code-quality') {
 		steps {
 			withSonarQubeEnv('sonar3') {
 				sh 'mvn sonar:sonar'
