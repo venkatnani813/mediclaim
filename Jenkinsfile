@@ -9,16 +9,10 @@ pipeline {
             git 'https://github.com/saidevmalik/mediclaim.git'
 		}
 	}
-		
-		stage('Sonar Build') {
-            steps {
-		        script{
-				    withSonarQubeEnv('sonar') {
-					sh 'mvn clean verify sonar:sonar -Dmaven.test.skip=true'
-					}
-                }
-            }
-		}
-		
+		 stage ('Build') {
+	     steps {
+	     sh 'mvn clean install'
+}
+}		
 }
 }
