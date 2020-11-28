@@ -58,10 +58,10 @@ pipeline {
             mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
 }
 }
-		  //stage ('Deploy') {
-	     //steps {
-	     //sh 'mvn clean deploy -Dmaven.test.skip=true'
-//}
-//}
+		  stage ('Deploy') {
+	     steps {
+	     sh 'mvn clean deploy'
+}
+}
 }
 }
