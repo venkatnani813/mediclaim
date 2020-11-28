@@ -79,11 +79,11 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus</id>
-			<url>http://35.154.65.144:8081/repository/hcltechnology/</url>
+			<url>http://13.232.61.239:8081/repository/halloworld/</url>
 		</snapshotRepository>
 		<repository>
              <id>nexus</id>
-             <url>http://35.154.65.144:8081/repository/hcltechnology/</url>
+             <url>http://13.232.61.239:8081/repository/halloworld/</url>
        	     </repository>
 	</distributionManagement>
 	<build>
