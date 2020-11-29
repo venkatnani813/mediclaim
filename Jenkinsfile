@@ -71,7 +71,7 @@ pipeline {
 		stage('Deploye-UAT'){
 	   steps{
 		sshagent(['Tomcat-server']) {
-			 sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mediclaim@2/target/mediclaim-0.0.13-SNAPSHOT.jar ubuntu@13.232.119.46:/opt/tomcat/webapps/'
+			 sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mediclaim@2/target/mediclaim-0.0.13-SNAPSHOT.jar root@13.232.119.46:/opt/tomcat/webapps/'
 		}
 	   }
 		}
