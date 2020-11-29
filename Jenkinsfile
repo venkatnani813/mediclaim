@@ -69,11 +69,13 @@ pipeline {
 }
 }
 		stage ('UAT Approve')  {
+	steps{
             echo "Taking approval from DEV Manager"     
             timeout(time: 7, unit: 'DAYS') {
             input message: 'Do you want to deploy?', submitter: 'admin'
             }
      }
+		}
 		stage('Deploye-UAT'){
 	   steps{
 		sshagent(['tomcat']) {
