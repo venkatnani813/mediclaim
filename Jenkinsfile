@@ -70,9 +70,9 @@ pipeline {
 }
 		stage ('UAT Approve')  {
 	steps{
-            echo "Taking approval from DEV Manager"     
+            echo "Taking approval from Uat Manager"     
             timeout(time: 7, unit: 'DAYS') {
-            input message: 'Do you want to deploy?', submitter: 'Uatuser'
+            input message: 'Do you want to deploy?', submitter: 'user1'
             }
      }
 		}
