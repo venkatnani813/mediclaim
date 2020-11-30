@@ -79,7 +79,7 @@ pipeline {
 		stage('Deploye-UAT'){
 	   steps{
 		sshagent(['tomcat']) {
-	        deploy adapters: [tomcat9(path: '', url: 'http://52.66.195.248:8080/')], contextPath: null, war: '**/.*war'
+	        deploy adapters: [tomcat9(path: '', url: 'http://52.66.195.248:8080/')], contextPath: null, war: '**/*.war'
 		 //sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@52.66.195.248:/opt/tomcat/webapps/'
 		}
 	   }
