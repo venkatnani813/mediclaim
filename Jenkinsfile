@@ -63,11 +63,11 @@ pipeline {
 	     sh 'mvn clean deploy'
 }
 }
-		stage ('Release') {
-	     steps {
-	     sh 'export JENKINS_NODE_COOKIE=dontkillme ;nohup java -jar $WORKSPACE/target/*.jar &'
-}
-}
+		//stage ('Release') {
+	     //steps {
+	     //sh 'export JENKINS_NODE_COOKIE=dontkillme ;nohup java -jar $WORKSPACE/target/*.jar &'
+//}
+//}
 		stage ('UAT Approve')  {
 	steps{
             echo "Taking approval from Uat Manager"     
