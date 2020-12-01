@@ -37,22 +37,22 @@ pipeline {
 
             }
         }
-		stage('Publish Test Coverage Report') {
-          steps {
-             step([$class: 'JacocoPublisher', 
-             execPattern: '**/build/jacoco/*.exec',
-             classPattern: '**/build/classes',
-             sourcePattern: 'src/main/java',
-             exclusionPattern: 'src/test*'
-           ])
-          }
-      }	
-		stage('unit-tests') {
-            steps {
-               sh 'mvn test -Pcoverage'
-               stash includes: 'src/**, pom.xml, target/**', name: 'unit'
-}
-}
+		//stage('Publish Test Coverage Report') {
+          //steps {
+            // step([$class: 'JacocoPublisher', 
+             //execPattern: '**/build/jacoco/*.exec',
+             //classPattern: '**/build/classes',
+             //sourcePattern: 'src/main/java',
+             //exclusionPattern: 'src/test*'
+           //])
+          //}
+      //}	
+		//stage('unit-tests') {
+            //steps {
+              // sh 'mvn test -Pcoverage'
+               //stash includes: 'src/**, pom.xml, target/**', name: 'unit'
+//}
+//}
 		stage("email"){
             steps{
             mail bcc: '', body: 'Build is sucessful', cc: '', from: '', replyTo: '', subject: 'Build', to: 'saidevmalik123@gmail.com'
