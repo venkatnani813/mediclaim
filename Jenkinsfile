@@ -81,6 +81,7 @@ pipeline {
 		sshagent(['tomcat']) {
 	        //deploy adapters: [tomcat9(credentialsId: 'tomcat-deploy', path: '', url: 'http://52.66.195.248:8080/')], contextPath: 'mediclaim', war: '**/*.war'
 		 sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@52.66.195.248:/opt/tomcat/webapps/'
+		 sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@65.0.101.237 :/opt/playbooks/'
 		}
 	   }
 		}
