@@ -86,7 +86,7 @@ pipeline {
 		}
 		stage('Deploy-Dev'){
 	   steps{
-	       sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@65.0.101.237 :/opt/playbooks/'
+	       sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@65.0.101.237:/opt/playbooks/'
 		}
 	   }
 }
