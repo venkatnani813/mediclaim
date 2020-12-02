@@ -86,8 +86,10 @@ pipeline {
 		}
 		stage('Deploy-Dev'){
 	   steps{
+		   sshagent(['Ansible']) {
 	       sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@65.0.101.237:/opt/playbooks/'
 		}
 	   }
+		}
 }
 }
