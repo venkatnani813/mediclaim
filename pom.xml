@@ -18,6 +18,12 @@
 		<java.version>1.8</java.version>
 		<sonar.coverage.exclusions>**mediclaim/*,**/config/*,**/entity/*,**/dto/*,**/repository/*,**/exception/*,**/util/*</sonar.coverage.exclusions>
 	</properties>
+	<properties>
+            <!-- Optional URL to server. Default value is http://localhost:9000 -->
+            <sonar.host.url>
+              http://18.221.51.228:9000
+            </sonar.host.url>
+        </properties>
 
 	<dependencies>
 		<dependency>
